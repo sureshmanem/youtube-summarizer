@@ -44,5 +44,9 @@ Long videos need a larger context length; raise it if summaries look cut off.
 
 `yt-dlp` and `ffmpeg` are needed for videos without captions (audio is transcribed with Whisper).
 
-Originally built on Ollama; see the Medium article for the original architecture:
-[How I Built a YouTube Summarizer Using Ollama](https://medium.com/p/86bbb3194b6c). The migration is described in `migrationplan.md`.
+## Credits & License
+
+This project is a fork of [youtube-summarizer-ollama](https://github.com/AusaafAhmad/youtube-summarizer-ollama) by Ausaaf Ahmad, migrated from Ollama to LM Studio (see `migrationplan.md`). See the Medium article for the original architecture:
+[How I Built a YouTube Summarizer Using Ollama](https://medium.com/p/86bbb3194b6c).
+
+Released under the MIT License; see `LICENSE`.
