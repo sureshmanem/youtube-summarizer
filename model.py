@@ -1,5 +1,7 @@
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_ollama.llms import OllamaLLM
+from langchain_core.output_parsers import StrOutputParser
+from langchain_openai import ChatOpenAI
+from config import LMSTUDIO_BASE_URL
 
 template = """
 You are an AI Assistant. Summarize the following youtube video transcript in the following format:
@@ -13,9 +15,14 @@ You are an AI Assistant. Summarize the following youtube video transcript in the
 
 prompt = ChatPromptTemplate.from_template(template)
 
-model =  OllamaLLM(model="deepseek-r1")
 
-chain = prompt | model 
+def strip_reasoning(text: str) -> str:
+    # Reasoning models (e.g. deepseek-r1, qwen3) may emit <think>...</think> before the answer
+    return text.split("</think>")[-1].strip()
 
-def summarize(transcript:str)-> str:
-    return chain.invoke({f"transcript":transcript})
+
+def summarize(transcript: str, model: str) -> str:
+    # LM Studio ignores the API key, but the OpenAI client requires one
+    llm = ChatOpenAI(base_url=LMSTUDIO_BASE_URL, api_key="lm-studio", model=model, temperature=0.3)
+    chain = prompt | llm | StrOutputParser()
+    return strip_reasoning(chain.invoke({"transcript": transcript}))
