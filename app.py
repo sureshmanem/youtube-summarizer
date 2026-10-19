@@ -44,7 +44,7 @@ with st.sidebar:
     st.header("About This App")
     st.markdown("""
 
-        Made by Ausaaf Ahmad
+        Made by Suresh Manem
         """)
 
 with st.form("root"):
