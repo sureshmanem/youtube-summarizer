@@ -17,3 +17,6 @@ downloads/
 .vscode/
 .idea/
 .DS_Store
+
+# Local notes (not published)
+migrationplan.md

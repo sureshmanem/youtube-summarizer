@@ -46,7 +46,7 @@ Long videos need a larger context length; raise it if summaries look cut off.
 
 ## Credits & License
 
-This project is a fork of [youtube-summarizer-ollama](https://github.com/AusaafAhmad/youtube-summarizer-ollama) by Ausaaf Ahmad, migrated from Ollama to LM Studio (see `migrationplan.md`). See the Medium article for the original architecture:
+This project is a fork of [youtube-summarizer-ollama](https://github.com/AusaafAhmad/youtube-summarizer-ollama) by Ausaaf Ahmad, migrated from Ollama to LM Studio. See the Medium article for the original architecture:
 [How I Built a YouTube Summarizer Using Ollama](https://medium.com/p/86bbb3194b6c).
 
 Released under the MIT License; see `LICENSE`.
